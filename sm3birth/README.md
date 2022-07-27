@@ -14,3 +14,11 @@ ans[]：存储hash信息
 如果hash值对应的数组位置为空，进行存储；如果hash值对应数组位置不为空则找到碰撞，返回结果，最高实现了31bit的碰撞
 
 ![image](https://user-images.githubusercontent.com/66394822/181137672-a69686b7-f29c-44df-a5ec-c4f6b9d32485.png)
+
+将sm3.G_hash改为python库中sm3.sm3_hash函数测试结果；
+
+![image](https://user-images.githubusercontent.com/66394822/181142045-f97fd468-b068-4a62-ad0d-95a43ad32871.png)
+
+测试结果为碰撞成功：
+
+![image](https://user-images.githubusercontent.com/66394822/181142097-37b1f75d-4e34-4ad2-b88b-5ea022302ed0.png)
