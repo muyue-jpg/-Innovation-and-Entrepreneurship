@@ -126,7 +126,7 @@ def Deduce_pubkey(signature,message,n,G,p):
     print("公钥2:",Verify(message,n,signature[0],signature[1],G,P2),(P2[0],P2[1]))
 
 
-
+#计算二次剩余
 def Legendre(y,p): # 判断二次剩余
     return pow(y,(p - 1) // 2,p)
 def mul(a,b,p,w):#定义一个虚部乘法
@@ -139,7 +139,7 @@ def qpow(a,n,p,w):# 虚数的快速幂
         a =mul(a,a,p,w)
         n >>= 1
     return ans
-def Cipolla(y,p): #计算二次剩余
+def Cipolla(y,p): #Cipolla算法
     assert Legendre(y,p) == 1
     a=0
     while(1):
