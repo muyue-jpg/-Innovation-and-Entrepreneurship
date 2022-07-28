@@ -1,15 +1,9 @@
 #实现了Fp上的sm2
-import sys
-import os
-path=os.path.abspath('')
-sys.path.append(path)
 import sm3
 from random import random
 import secrets
-import hashlib
 import math
 import rfc6979
-from ECDSA import task as ecdsa
 
 #test parameters
 # p=0x8542D69E4C044F18E8B92435BF6FF7DE457283915C45517D722EDB8B08F1DFC3
@@ -171,7 +165,7 @@ def print_byte(a):
         count=count+1
         s=s+i
         if count%8==0:
-            s=s+' '
+            s=s+''
     return s
 
 #sm2签名算法
@@ -232,27 +226,27 @@ if __name__=="__main__":
     G=(xG,yG)
 
 ##sign
-    print('-------sign--------')
-    id="Alice_i_love_you_three_thousand_years"
-    #IDA简单的取id的acsii码的16进制表示
-    IDA=Generate_IDA(id)
-    #test IDA
-    #IDA="414c494345313233405941484f4f2e434f4d"
-    print("IDA:",print_byte(IDA))
-    #IDA的bit长度的两字节形式
-    ENTLA=int2byte(len(byte2bit(IDA)),2)
-    KEY=Generate_key()
-    ZA=Generate_ZA(ENTLA,IDA,a,b,xG,yG,KEY['public key'][0],KEY['public key'][1])
-    #print(ZA)
-    message='hello hello'
-    #test message
-    #message='message digest'
-    print('message:',message)
-    print("private key:{\n",print_byte(f2byte(KEY['private key'])),'\n}')
-    print("public key:{{\n x:{x}\n y:{y}\n}}".format(x=print_byte(f2byte(KEY['public key'][0])),y=print_byte(f2byte(KEY['public key'][1]))))
-    sig=sm2_sign(ZA,message,KEY['private key'])
-    print("signature:{{\n r:{r}\n s:{s}\n}}".format(r=print_byte(sig[0]),s=print_byte(sig[1])))
-    print('---------------------------------')
+    # print('-------sign--------')
+    # id="Alice_i_love_you_three_thousand_years"
+    # #IDA简单的取id的acsii码的16进制表示
+    # IDA=Generate_IDA(id)
+    # #test IDA
+    # #IDA="414c494345313233405941484f4f2e434f4d"
+    # print("IDA:",print_byte(IDA))
+    # #IDA的bit长度的两字节形式
+    # ENTLA=int2byte(len(byte2bit(IDA)),2)
+    # KEY=Generate_key()
+    # ZA=Generate_ZA(ENTLA,IDA,a,b,xG,yG,KEY['public key'][0],KEY['public key'][1])
+    # #print(ZA)
+    # message='hello hello'
+    # #test message
+    # #message='message digest'
+    # print('message:',message)
+    # print("private key:{\n",print_byte(f2byte(KEY['private key'])),'\n}')
+    # print("public key:{{\n x:{x}\n y:{y}\n}}".format(x=print_byte(f2byte(KEY['public key'][0])),y=print_byte(f2byte(KEY['public key'][1]))))
+    # sig=sm2_sign(ZA,message,KEY['private key'])
+    # print("signature:{{\n r:{r}\n s:{s}\n}}".format(r=print_byte(sig[0]),s=print_byte(sig[1])))
+    # print('---------------------------------')
 
 ##verify sign###
     # print("verify the signature:\nZA:{za}\nmessage:{m}\nsignature:\nr:{r}\ns:{s}\nverify:{V}".format(za=print_byte(ZA),m=message,r=print_byte(sig[0]),s=print_byte(sig[1]),V=sm2_sign_verify(message,sig,KEY['public key'],ZA)))
@@ -265,8 +259,13 @@ if __name__=="__main__":
 
 #Same d and k with ECDSA, leads to leaking of d
     # print('Same d and k with ECDSA, leads to leaking of d...')
-    # sig2=(byte2int(sig[0]),byte2int(sig[1]))
-    # sig1=(68191553287468095656764210092355924919030978489780542705082430394142805169685, 66836246292651079092568568747894603363024933544589514212317723500488999453541)
-    # e1=0xb94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9
+    # d=0x64CA290259A8D3089474E79FF7D3BC2B11F83B9B77B133D98D4B3FABD8949511
+    # k=0x6C47464183BB16B66BBB50BD1C48184697DDACCC24D1D65C58D6E294079C5A92
+    # print("d:{}\nk:{}".format(hex(d)[2:],hex(k)[2:]))
+    # sig2=(0x226710C81823D29B3ABA0AC3D361F63FAF07102B5426C5E251A22E01E9CA4458,0x748217268FA216D928887E3D4034FA52F35785C6F3A06E85BB80588F29A77274)#sm2签名
+    # sig1=(68191553287468095656764210092355924919030978489780542705082430394142805169685, 66836246292651079092568568747894603363024933544589514212317723500488999453541)#ecdsa签名
+    # e1=0xb94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9#ecdsa 消息hash
+    # print("sm2 sig:\n{sig2}\necdsa sig:\n{sig1}".format(sig2={hex(sig2[0])[2:],hex(sig2[1])[2:]},sig1={hex(sig1[0])[2:],hex(sig1[1])[2:]}))
+    # print("computed d:",end='')
     # d=(sig1[1]*sig2[1]-e1)*ModReverse((sig1[0]-sig1[1]*sig2[1]-sig1[1]*sig2[0]),n)%n
     # print(hex(d)[2:])
