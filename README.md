@@ -34,7 +34,7 @@ Project: Impl Merkle Tree following RFC6962
 
 
 
-组员 邓云天 201900460067 账户名称 mirac1E
+组员 邓云天 201900460067 账户名称 klaomax
 
 完成项目
 
