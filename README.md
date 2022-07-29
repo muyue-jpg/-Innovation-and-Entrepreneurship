@@ -30,3 +30,21 @@ Project: Impl Merkle Tree following RFC6962
 • Construct a Merkle tree with 10w leaf nodes
 
 • Build inclusion proof for specified element
+
+
+
+
+组员 邓云天 201900460067 账户名称 mirac1E
+
+完成项目
+
+Project: report on the application of this deduce technique in Ethereum with ECDSA （Deduce public key from signature）
+
+Project: impl sm2 with RFC6979
+
+Project: forge a signature to pretend that you are Satoshi （ECDSA）
+
+Project: Implement the above ECMH scheme
+
+Project: verify the above pitfalls with proof-of-concept code（Signatures pitfalls summary）
+
