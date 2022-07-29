@@ -165,7 +165,7 @@ def print_byte(a):
         count=count+1
         s=s+i
         if count%8==0:
-            s=s+''
+            s=s+' '
     return s
 
 #sm2签名算法
@@ -226,27 +226,27 @@ if __name__=="__main__":
     G=(xG,yG)
 
 ##sign
-    # print('-------sign--------')
-    # id="Alice_i_love_you_three_thousand_years"
-    # #IDA简单的取id的acsii码的16进制表示
-    # IDA=Generate_IDA(id)
-    # #test IDA
-    # #IDA="414c494345313233405941484f4f2e434f4d"
-    # print("IDA:",print_byte(IDA))
-    # #IDA的bit长度的两字节形式
-    # ENTLA=int2byte(len(byte2bit(IDA)),2)
-    # KEY=Generate_key()
-    # ZA=Generate_ZA(ENTLA,IDA,a,b,xG,yG,KEY['public key'][0],KEY['public key'][1])
-    # #print(ZA)
-    # message='hello hello'
-    # #test message
-    # #message='message digest'
-    # print('message:',message)
-    # print("private key:{\n",print_byte(f2byte(KEY['private key'])),'\n}')
-    # print("public key:{{\n x:{x}\n y:{y}\n}}".format(x=print_byte(f2byte(KEY['public key'][0])),y=print_byte(f2byte(KEY['public key'][1]))))
-    # sig=sm2_sign(ZA,message,KEY['private key'])
-    # print("signature:{{\n r:{r}\n s:{s}\n}}".format(r=print_byte(sig[0]),s=print_byte(sig[1])))
-    # print('---------------------------------')
+    print('-------sign--------')
+    id="Alice_i_love_you_three_thousand_years"
+    #IDA简单的取id的acsii码的16进制表示
+    IDA=Generate_IDA(id)
+    #test IDA
+    #IDA="414c494345313233405941484f4f2e434f4d"
+    print("IDA:",print_byte(IDA))
+    #IDA的bit长度的两字节形式
+    ENTLA=int2byte(len(byte2bit(IDA)),2)
+    KEY=Generate_key()
+    ZA=Generate_ZA(ENTLA,IDA,a,b,xG,yG,KEY['public key'][0],KEY['public key'][1])
+    #print(ZA)
+    message='hello hello'
+    #test message
+    #message='message digest'
+    print('message:',message)
+    print("private key:{\n",print_byte(f2byte(KEY['private key'])),'\n}')
+    print("public key:{{\n x:{x}\n y:{y}\n}}".format(x=print_byte(f2byte(KEY['public key'][0])),y=print_byte(f2byte(KEY['public key'][1]))))
+    sig=sm2_sign(ZA,message,KEY['private key'])
+    print("signature:{{\n r:{r}\n s:{s}\n}}".format(r=print_byte(sig[0]),s=print_byte(sig[1])))
+    print('---------------------------------')
 
 ##verify sign###
     # print("verify the signature:\nZA:{za}\nmessage:{m}\nsignature:\nr:{r}\ns:{s}\nverify:{V}".format(za=print_byte(ZA),m=message,r=print_byte(sig[0]),s=print_byte(sig[1]),V=sm2_sign_verify(message,sig,KEY['public key'],ZA)))
