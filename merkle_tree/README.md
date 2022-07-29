@@ -11,7 +11,7 @@
 
 4.检查是否包含特定元素
 
-这里代码参考了https://github.com/azranohad/merkel_tree提供的merkletree代码，万般感谢
+这里代码参考了https://github.com/azranohad/merkel_tree 提供的merkletree代码，万般感谢
 
 
 运行截图如下
