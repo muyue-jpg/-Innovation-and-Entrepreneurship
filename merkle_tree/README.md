@@ -4,9 +4,13 @@
 • Build exclusion proof for specified element
 
 1.在代码中Node类定义了叶节点
+
 2.MerkleTree类定义了merkletree及一系列操作，包括创建merkle树，获取根节点的哈希值，为指定元素建立包含证明
+
 3.然后开始构建具有100000叶节点的Merkle树
+
 4.检查是否包含特定元素
+
 
 
 运行截图如下
