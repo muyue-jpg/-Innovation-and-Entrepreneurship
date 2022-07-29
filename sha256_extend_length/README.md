@@ -15,4 +15,8 @@ Project: implement length extension attack for SM3, SHA256, etc.
 5.此时消息 + 签名已到达目的地，因此我们可以再次使用预共享密钥。
 
 6.服务器简单检查 sha256（PSK + 消息）是否与签名匹配。如果是这样，它接受签名，因为它认为它受PSK保护。
+
+
+
+运行结果如下所示
 ![J _OL9R)9R)ZBF%`0V8}LLM](https://user-images.githubusercontent.com/80380151/181707316-c4873eab-7b4b-4bf1-a666-559be0f7db42.png)
