@@ -4,7 +4,7 @@
 
 ![](1.png)
 
-也是搜索了半天才发现公钥在output里面，发现并不是P2KPH(没有末尾的checksig)
+也是搜索了半天才发现公钥在output里面，发现并不是P2KPH(hash160)
 
 （感谢https://bitcointalk.org/index.php?topic=5192074.msg52725370#msg52725370，不然我可能得找更久）
 
