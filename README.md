@@ -1,7 +1,6 @@
 # Innovation-and-Entrepreneurship
 Innovation and Entrepreneurship
-
-网安创新与创业作业 
+ 
 
 殷豪哲 201900460059 账户名称 muyue-jpg
 
@@ -14,6 +13,13 @@ Innovation and Entrepreneurship
 3.implement length extension attack for SM3, SHA256, etc.
 
 4.report on the application of this deduce technique in Ethereum with ECDSA （Deduce public key from signature）
+Project: impl sm2 with RFC6979
+
+5.Project: forge a signature to pretend that you are Satoshi （ECDSA）
+
+6.Project: Implement the above ECMH scheme
+
+7.Project: verify the above pitfalls with proof-of-concept code（Signatures pitfalls summary）
 
 
 
